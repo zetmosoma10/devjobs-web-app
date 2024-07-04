@@ -16,3 +16,38 @@
     font-weight: bold;
   }
 }
+
+@layer components {
+  .nav {
+    background-image: url("../src/assets/mobile/bg-pattern-header.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 32px;
+    padding-bottom: 72px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .nav {
+      background-image: url("../src/assets/tablet/bg-pattern-header.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-top: 42px;
+      padding-bottom: 82px;
+    }
+  }
+
+  @media screen and (min-width: 1110px) {
+    .nav {
+      background-image: url("../src/assets/desktop/bg-pattern-header.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-top: 45px;
+      padding-bottom: 85px;
+    }
+  }
+
+  /* Tailwind Styles */
+  .max-container {
+    @apply max-w-[1110px] mx-auto w-[90%];
+  }
+}
