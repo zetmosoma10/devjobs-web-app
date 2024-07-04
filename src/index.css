@@ -46,6 +46,13 @@
     }
   }
 
+  /* Grid */
+  .custome-grid {
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    row-gap: 50px;
+    column-gap: 30px;
+  }
+
   /* Tailwind Styles */
   .max-container {
     @apply max-w-[1110px] mx-auto w-[90%];

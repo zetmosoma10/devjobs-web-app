@@ -1,11 +1,11 @@
-import JobCard from "./components/JobCard";
+import JobCardGrid from "./components/JobCardGrid";
 import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="bg-light_grey h-screen">
+    <div className="bg-light_grey min-h-screen p-12">
       {/* <NavBar /> */}
-      <JobCard />
+      <JobCardGrid />
     </div>
   );
 }
