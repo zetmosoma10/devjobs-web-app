@@ -6,10 +6,12 @@ const JobCardGrid = () => {
   const [jobData, setjobData] = useState(jobDataArr);
 
   return (
-    <div className="grid max-container custome-grid">
-      {jobData.map((jobCard) => (
-        <JobCard key={jobCard.id} job={jobCard} />
-      ))}
+    <div className="max-container">
+      <div className="grid  custome-grid">
+        {jobData.map((jobCard) => (
+          <JobCard key={jobCard.id} job={jobCard} />
+        ))}
+      </div>
     </div>
   );
 };
