@@ -1,18 +1,18 @@
-import JobCardGrid from "./components/JobCardGrid";
-import NavBar from "./components/NavBar";
-import SearchForm from "./components/SearchForm";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./pages/Layout";
+import HomePage from "./pages/HomePage";
+import JobDetails from "./pages/JobDetails";
 
 function App() {
   return (
-    <div className="relative bg-light_grey min-h-screen ">
-      <NavBar />
-      <div className="max-container absolute left-0 right-0 top-[100px] md:top-[115px]">
-        <SearchForm />
-      </div>
-      <div className="mt-24 md:mt-28 lg:mt-36">
-        <JobCardGrid />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element=<Layout />>
+          <Route index element=<HomePage /> />
+          <Route path="jobDetails/:id" element=<JobDetails /> />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
