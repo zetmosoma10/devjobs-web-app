@@ -6,12 +6,17 @@ const JobCard = ({
   position,
   company,
   location,
+  logo,
+  logoBackground,
 }: JobType) => {
   return (
     <article className="relative bg-white rounded-md px-8 pb-8 pt-12 m-2 hover:shadow-xl transition-shadow duration-150 focus:shadow-xl cursor-pointer ">
       <div
-        className={`absolute top-[-25px] left-[32px] flex items-center justify-center bg-red-400 w-12 h-12 rounded-2xl `}
-      ></div>
+        style={{ backgroundColor: logoBackground }}
+        className="absolute top-[-25px] left-[32px] flex items-center justify-center  w-12 h-12 rounded-2xl "
+      >
+        <img src={logo} alt="" />
+      </div>
       <div>
         <span className="text-base text-grey ">
           {postedAt} . {contract}

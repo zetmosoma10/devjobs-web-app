@@ -2,7 +2,6 @@ import { useState } from "react";
 import jobDataArr from "../../data.json";
 import JobCard from "./JobCard";
 import { Link } from "react-router-dom";
-import { JobType } from "../entities/jobType";
 
 const JobCardGrid = () => {
   const [jobData, setjobData] = useState(jobDataArr);
