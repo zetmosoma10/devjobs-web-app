@@ -21,7 +21,7 @@ const JobDetailsPage = () => {
     <div>
       <div
         className="absolute left-0 right-0 top-[100px] md:top-[115px] flex flex-col  
-        items-center pt-12 pb-8 md:pt-0 md:pb-0  md:flex-row  md:justify-between md:pr-10 bg-white max-container 
+        items-center pt-12 pb-8 md:pt-0 md:pb-0  md:flex-row  md:justify-between md:pr-10 bg-white dark:bg-very_dark_blue max-container 
         space-y-6 md:space-y-0 rounded-md overflow-hidden"
       >
         <div className="md:flex md:items-center md:space-x-10 ">
@@ -39,7 +39,7 @@ const JobDetailsPage = () => {
           </div>
 
           <div className="text-center md:text-left mt-6 md:mt-0">
-            <p className="text-2xl font-bold text-very_dark_blue">
+            <p className="text-2xl font-bold text-very_dark_blue dark:text-white">
               {jobDetail?.company}
             </p>
             <a href="#" className="text-base text-grey mt-3">
@@ -49,19 +49,20 @@ const JobDetailsPage = () => {
         </div>
         <a
           href="#"
-          className="font-bold text-violet bg-light_grey py-4 px-6 rounded-[5px]"
+          className="font-bold text-violet dark:text-white bg-light_grey dark:bg-[#c9c9c9] dark:bg-opacity-25
+           py-4 px-6 rounded-[5px]"
         >
           Company Site
         </a>
       </div>
       <div className="max-container mt-[300px] md:mt-[250px]">
-        <article className="bg-white text-dark_grey p-12 rounded-md mt-52 md:mt-32 ">
+        <article className="bg-white dark:bg-very_dark_blue text-dark_grey p-12 rounded-md mt-52 md:mt-32 ">
           <header className="flex flex-col md:flex-row items-start md:items-center justify-between">
             <div>
               <span>
                 {jobDetail?.postedAt} . {jobDetail?.contract}
               </span>
-              <h2 className="font-bold text-3xl text-very_dark_blue mt-2 mb-3">
+              <h2 className="font-bold text-3xl text-very_dark_blue dark:text-white mt-2 mb-3">
                 {jobDetail?.position}
               </h2>
               <small className="font-bold text-sm text-violet">
@@ -78,7 +79,7 @@ const JobDetailsPage = () => {
           <div className="mt-10">
             <p>{jobDetail?.description}</p>
             <div className="mt-10">
-              <h3 className="font-bold text-xl text-very_dark_blue mb-7">
+              <h3 className="font-bold text-xl text-very_dark_blue dark:text-white mb-7">
                 Description
               </h3>
               <p>{jobDetail?.requirements.content}</p>
@@ -89,7 +90,7 @@ const JobDetailsPage = () => {
               </ul>
             </div>
             <div className="mt-10">
-              <h3 className="font-bold text-xl text-very_dark_blue mb-6">
+              <h3 className="font-bold text-xl text-very_dark_blue dark:text-white mb-6">
                 Requirements
               </h3>
               <p>{jobDetail?.role.content}</p>

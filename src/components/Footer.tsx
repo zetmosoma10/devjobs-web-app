@@ -4,9 +4,11 @@ interface Props {
 
 const Footer = ({ position }: Props) => {
   return (
-    <footer className="flex items-center justify-between bg-white mt-12 py-5 px-10">
+    <footer className="flex items-center justify-between bg-white dark:bg-very_dark_blue mt-12 py-5 px-10">
       <div>
-        <p className="font-bold text-xl text-very_dark_blue">{position}</p>
+        <p className="font-bold text-xl text-very_dark_blue dark:text-white">
+          {position}
+        </p>
         <small className="text-base text-dark_grey mt-3">So Digital Inc.</small>
       </div>
       <a
