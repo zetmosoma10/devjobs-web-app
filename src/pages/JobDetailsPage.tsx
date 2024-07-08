@@ -3,6 +3,7 @@ import jobDataArr from "../../data.json";
 import { useEffect, useState } from "react";
 
 import { JobType } from "../entities/jobType";
+import Footer from "../components/Footer";
 
 const JobDetailsPage = () => {
   const [jobDetail, setJobDetail] = useState<JobType>();
@@ -99,22 +100,7 @@ const JobDetailsPage = () => {
           </div>
         </article>
       </div>
-      <footer className="flex items-center justify-between bg-white mt-12 py-5 px-10">
-        <div>
-          <p className="font-bold text-xl text-very_dark_blue">
-            {jobDetail?.position}
-          </p>
-          <small className="text-base text-dark_grey mt-3">
-            So Digital Inc.
-          </small>
-        </div>
-        <a
-          href="#"
-          className="font-bold text-white bg-violet py-4 px-6 rounded-[5px]"
-        >
-          Apply Now
-        </a>
-      </footer>
+      <Footer position={jobDetail?.position} />
     </div>
   );
 };
