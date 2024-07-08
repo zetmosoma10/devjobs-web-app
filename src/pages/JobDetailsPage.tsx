@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { JobType } from "../entities/jobType";
 import Footer from "../components/Footer";
+import LogoBadge from "../components/LogoBadge";
 
 const JobDetailsPage = () => {
   const [jobDetail, setJobDetail] = useState<JobType>();
@@ -30,12 +31,13 @@ const JobDetailsPage = () => {
           >
             <img className="w-[140px]" src={`/${jobDetail?.logo}`} alt="" />
           </div>
-          <div
-            style={{ backgroundColor: jobDetail?.logoBackground }}
-            className="md:hidden mt-3  absolute top-0 left-0 right-0 mx-auto flex items-center justify-center  w-12 h-12 rounded-2xl "
-          >
-            <img className="" src={`/${jobDetail?.logo}`} alt="" />
+          <div className="md:hidden mt-3 absolute top-[-5px] left-[45%] ">
+            <LogoBadge
+              logo={`/${jobDetail?.logo}`}
+              logoBackground={jobDetail?.logoBackground}
+            />
           </div>
+
           <div className="text-center md:text-left mt-6 md:mt-0">
             <p className="text-2xl font-bold text-very_dark_blue">
               {jobDetail?.company}

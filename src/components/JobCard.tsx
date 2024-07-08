@@ -1,4 +1,5 @@
 import { JobType } from "../entities/jobType";
+import LogoBadge from "./LogoBadge";
 
 const JobCard = ({
   postedAt,
@@ -11,11 +12,8 @@ const JobCard = ({
 }: JobType) => {
   return (
     <article className="relative bg-white rounded-md px-8 pb-8 pt-12 m-2 hover:shadow-xl transition-shadow duration-150 focus:shadow-xl cursor-pointer ">
-      <div
-        style={{ backgroundColor: logoBackground }}
-        className="absolute top-[-25px] left-[32px] flex items-center justify-center  w-12 h-12 rounded-2xl "
-      >
-        <img src={logo} alt="" />
+      <div className="absolute top-[-25px] left-[32px] ">
+        <LogoBadge logo={logo} logoBackground={logoBackground} />
       </div>
       <div>
         <span className="text-base text-grey ">
