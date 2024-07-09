@@ -1,4 +1,4 @@
-import { JobType } from "../entities/jobType";
+import JobType from "../entities/jobType";
 import LogoBadge from "./LogoBadge";
 
 const JobCard = ({

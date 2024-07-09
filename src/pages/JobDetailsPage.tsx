@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import jobDataArr from "../../data.json";
 import { useEffect, useState } from "react";
 
-import { JobType } from "../entities/jobType";
+import JobType from "../entities/jobType";
 import Footer from "../components/Footer";
 import LogoBadge from "../components/LogoBadge";
 
