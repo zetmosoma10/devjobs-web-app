@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import jobDataArr from "../../data.json";
+import jobDataArr from "../data.json";
 import { useEffect, useState } from "react";
 
 import JobType from "../entities/jobType";

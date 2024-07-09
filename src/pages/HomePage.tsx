@@ -1,6 +1,6 @@
 import JobCardGrid from "../components/JobCardGrid";
 import SearchForm from "../components/SearchForm";
-import allJobsData from "../../data.json";
+import allJobsData from "../data.json";
 import { useState } from "react";
 import Form from "../entities/formDataType";
 
