@@ -1,4 +1,4 @@
-export interface JobType {
+export default interface JobType {
   id: number;
   company: string;
   logo: string;

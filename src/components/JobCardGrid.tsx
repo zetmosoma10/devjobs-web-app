@@ -1,19 +1,26 @@
-import { useState } from "react";
-import jobDataArr from "../../data.json";
-import JobCard from "./JobCard";
 import { Link } from "react-router-dom";
+import JobType from "../entities/jobType";
+import JobCard from "./JobCard";
 
-const JobCardGrid = () => {
-  const [jobData, setjobData] = useState(jobDataArr);
+interface Props {
+  jobsData: JobType[];
+}
 
+const JobCardGrid = ({ jobsData }: Props) => {
   return (
     <div className="max-container">
       <div className="grid  custome-grid">
-        {jobData.map((jobCard) => (
-          <Link to={`jobDetails/${jobCard.id}`} key={jobCard.id}>
-            <JobCard {...jobCard} />
-          </Link>
-        ))}
+        {jobsData.length > 0 ? (
+          jobsData.map((jobCard) => (
+            <Link to={`jobDetails/${jobCard.id}`} key={jobCard.id}>
+              <JobCard {...jobCard} />
+            </Link>
+          ))
+        ) : (
+          <h3 className="text-4xl font-semibold text-very_dark_blue dark:text-white my-8">
+            No jobs found.
+          </h3>
+        )}
       </div>
     </div>
   );

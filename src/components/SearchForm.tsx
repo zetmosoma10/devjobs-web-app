@@ -1,10 +1,19 @@
-import { RiFilter2Fill } from "react-icons/ri";
+import { ChangeEvent, FormEvent } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoSearchSharp } from "react-icons/io5";
+import { RiFilter2Fill } from "react-icons/ri";
+import Form from "../entities/formDataType";
 
-const SearchForm = () => {
+interface Props {
+  formData: Form;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
+}
+
+const SearchForm = ({ formData, handleChange, handleSubmit }: Props) => {
   return (
     <form
+      onSubmit={handleSubmit}
       className="flex items-center justify-between mb-8 bg-white dark:bg-very_dark_blue pl-6  md:pl-8 pr-4 py-4 
          space-x-7  rounded-md "
     >
@@ -15,6 +24,9 @@ const SearchForm = () => {
         <input
           className="font-base dark:bg-very_dark_blue caret-violet md:border-r dark:md:border-r-dark_grey pr-2 md:py-5 text-very_dark_blue dark:text-white w-full outline-none  placeholder:text-base placeholder:text-grey"
           placeholder="Filter by title, companies, expertise…"
+          value={formData.title}
+          onChange={handleChange}
+          name="title"
           type="text"
         />
       </div>
@@ -23,6 +35,9 @@ const SearchForm = () => {
         <input
           className="font-base dark:bg-very_dark_blue w-full caret-violet md:border-r dark:md:border-r-dark_grey pr-2 md:py-5 text-very_dark_blue dark:text-white outline-none placeholder:text-base placeholder:text-grey"
           placeholder="Filter by location…"
+          value={formData.location}
+          onChange={handleChange}
+          name="location"
           type="text"
         />
       </div>
@@ -30,7 +45,9 @@ const SearchForm = () => {
         <input
           className="bg-grey w-6 h-6 caret-violet dark:bg-dark_grey"
           type="checkbox"
-          name=""
+          checked={formData.isFullTime}
+          onChange={handleChange}
+          name="isFullTime"
           id="checkbox"
         />
         <label
