@@ -11,20 +11,16 @@ interface Props {
 const MobileForm = ({ location, isFullTime, handleChange }: Props) => {
   return (
     <div
-      className="absolute top-[100px] left-0 right-0 z-20 bg-white dark:bg-very_dark_blue 
+      className="absolute shadow-2xl top-[100px] left-0 right-0 z-20 bg-white dark:bg-very_dark_blue 
         rounded-md p-6 space-y-6 md:hidden mx-auto"
     >
       <div className="flex items-center space-x-4 w-full pb-6 border-b dark:border-b-dark_grey">
         <FaLocationDot color="#5964E0" size="20px" />
-        <input
-          className="font-base dark:bg-very_dark_blue w-full caret-violet md:border-r
-               dark:md:border-r-dark_grey pr-2 text-very_dark_blue dark:text-white 
-                outline-none placeholder:text-base placeholder:text-grey"
-          placeholder="Filter by location…"
-          value={location}
-          onChange={handleChange}
+        <Input
           name="location"
-          type="text"
+          value={location}
+          placeholder="Filter by location…"
+          handleChange={handleChange}
         />
       </div>
       <div className="flex items-center space-x-4 text-nowrap ">

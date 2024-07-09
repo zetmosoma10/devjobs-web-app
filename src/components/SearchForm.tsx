@@ -23,22 +23,28 @@ const SearchForm = ({ formData, handleChange, handleSubmit }: Props) => {
     setShowMobileForm(false);
   };
 
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleSubmit(e);
+    setOffMobileForm();
+  };
+
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       className="relative flex items-center justify-between mb-8 bg-white dark:bg-very_dark_blue pl-6  md:pl-8 pr-4 py-4 
           rounded-md "
     >
       <div className="flex items-center space-x-4 w-full ">
-        <div className="hidden md:flex md:items-center space-x-4 w-full">
+        <div className="hidden md:block ">
           <IoSearchSharp color="#5964E0" size="20px" />
-          <Input
-            name="title"
-            value={formData.title}
-            placeholder="Filter by title, companies, expertise…"
-            handleChange={handleChange}
-          />
         </div>
+        <Input
+          name="title"
+          value={formData.title}
+          placeholder="Filter by title, companies, expertise…"
+          handleChange={handleChange}
+        />
       </div>
       <div className="  hidden md:flex md:items-center space-x-4 w-full ml-3">
         <FaLocationDot color="#5964E0" size="20px" />
