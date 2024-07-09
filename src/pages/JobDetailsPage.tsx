@@ -29,11 +29,11 @@ const JobDetailsPage = () => {
             style={{ backgroundColor: jobDetail?.logoBackground }}
             className="hidden md:flex md:items-center md:justify-center md:h-[140px] md:p-3"
           >
-            <img className="w-[140px]" src={`/${jobDetail?.logo}`} alt="" />
+            <img className="w-[140px]" src={jobDetail?.logo} alt="" />
           </div>
           <div className="md:hidden mt-3 absolute top-[-5px] left-[45%] ">
             <LogoBadge
-              logo={`/${jobDetail?.logo}`}
+              logo={jobDetail?.logo}
               logoBackground={jobDetail?.logoBackground}
             />
           </div>
