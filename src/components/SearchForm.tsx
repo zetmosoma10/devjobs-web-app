@@ -1,8 +1,11 @@
-import { ChangeEvent, FormEvent } from "react";
-import { FaLocationDot } from "react-icons/fa6";
+import { ChangeEvent, FormEvent, useState } from "react";
+
 import { IoSearchSharp } from "react-icons/io5";
 import { RiFilter2Fill } from "react-icons/ri";
 import Form from "../entities/formDataType";
+import MobileForm from "./MobileForm";
+import { FaLocationDot } from "react-icons/fa6";
+import Input from "./Input";
 
 interface Props {
   formData: Form;
@@ -11,37 +14,42 @@ interface Props {
 }
 
 const SearchForm = ({ formData, handleChange, handleSubmit }: Props) => {
+  const [showMobileForm, setShowMobileForm] = useState(false);
+  const setOnMobileForm = () => {
+    setShowMobileForm(true);
+  };
+
+  const setOffMobileForm = () => {
+    setShowMobileForm(false);
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center justify-between mb-8 bg-white dark:bg-very_dark_blue pl-6  md:pl-8 pr-4 py-4 
-         space-x-7  rounded-md "
+      className="relative flex items-center justify-between mb-8 bg-white dark:bg-very_dark_blue pl-6  md:pl-8 pr-4 py-4 
+          rounded-md "
     >
-      <div className="flex items-center space-x-4 w-full">
-        <div className="hidden md:block">
+      <div className="flex items-center space-x-4 w-full ">
+        <div className="hidden md:flex md:items-center space-x-4 w-full">
           <IoSearchSharp color="#5964E0" size="20px" />
+          <Input
+            name="title"
+            value={formData.title}
+            placeholder="Filter by title, companies, expertise…"
+            handleChange={handleChange}
+          />
         </div>
-        <input
-          className="font-base dark:bg-very_dark_blue caret-violet md:border-r dark:md:border-r-dark_grey pr-2 md:py-5 text-very_dark_blue dark:text-white w-full outline-none  placeholder:text-base placeholder:text-grey"
-          placeholder="Filter by title, companies, expertise…"
-          value={formData.title}
-          onChange={handleChange}
-          name="title"
-          type="text"
-        />
       </div>
-      <div className="  hidden md:flex md:items-center space-x-4 w-full ">
+      <div className="  hidden md:flex md:items-center space-x-4 w-full ml-3">
         <FaLocationDot color="#5964E0" size="20px" />
-        <input
-          className="font-base dark:bg-very_dark_blue w-full caret-violet md:border-r dark:md:border-r-dark_grey pr-2 md:py-5 text-very_dark_blue dark:text-white outline-none placeholder:text-base placeholder:text-grey"
-          placeholder="Filter by location…"
-          value={formData.location}
-          onChange={handleChange}
+        <Input
           name="location"
-          type="text"
+          value={formData.location}
+          placeholder="Filter by location…"
+          handleChange={handleChange}
         />
       </div>
-      <div className=" hidden md:flex md:items-center space-x-4 text-nowrap ">
+      <div className=" hidden md:flex md:items-center space-x-4 text-nowrap mx-5">
         <input
           className="bg-grey w-6 h-6 caret-violet dark:bg-dark_grey"
           type="checkbox"
@@ -57,9 +65,21 @@ const SearchForm = ({ formData, handleChange, handleSubmit }: Props) => {
           Full Time
         </label>
       </div>
-      <div className="md:hidden text-dark_grey cursor-pointer">
+      <div
+        onClick={setOnMobileForm}
+        className="md:hidden text-dark_grey dark:text-white cursor-pointer mx-5"
+      >
         <RiFilter2Fill size="20px" />
       </div>
+      {/* -------------------------- */}
+      {showMobileForm && (
+        <MobileForm
+          location={formData.location}
+          isFullTime={formData.isFullTime}
+          handleChange={handleChange}
+        />
+      )}
+      {/* ------------------------------------ */}
       <button className="hidden md:block bg-violet hover:bg-opacity-75 text-white font-bold rounded-md text-base py-4 px-9 ">
         Search
       </button>
